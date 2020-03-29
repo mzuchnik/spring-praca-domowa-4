@@ -1,23 +1,11 @@
-# spring-praca-domowa-3
-Spring boot, praca domowa nr 3
+# spring-praca-domowa-4
+Spring boot, praca domowa nr 4
 
-Zadanie podstawowe:
-Napisz REST API dla listy pojazdów. Pojazd będzie miał pola: id, mark, model, color.
-API które będzie obsługiwało metody webowe:
+Rozbuduj swoją aplikacje z poprzedniego tygodnia o interfejs graficzny, który umożliwi:
 
-	do pobierania wszystkich pozycji
-	do pobierania elementu po jego id
-	do pobierania elementów w określonym kolorze (query)
-	do dodawania pozycji
-	do modyfikowania pozycji
-	do modyfikowania jednego z pól pozycji
-	do usuwania jeden pozycji
-Przy starcie aplikacji mają dodawać się 3 pozycje.
-
-—————————
-
-Dla ambitnych:
-
-	rozbuduj aplikacje o możliwość zwracania danych w postaci XML
-	dodaj obsługę Swgger UI
-	zaimplementuj HATEOAS
+	- wyświetlanie wszystkich pozycji
+	- pobieranie elementu po jego id
+	- dodawanie pozycji
+	- modyfikowanie pozycji
+	- modyfikowanie jednego z pól pozycji
+	- usuwania jednej pozycji
