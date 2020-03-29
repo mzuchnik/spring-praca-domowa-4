@@ -94,8 +94,10 @@ public class CarController {
         if (containRepeatId == 0) {
             ra.addAttribute("info","Brak pojazu o id: " + car.getId());
         }else{
-            carService.removeCarById(car.getId());
-            carService.addCar(car);
+            Car carById = carService.getCarById(car.getId()).get();
+            carById.setColor(car.getColor());
+            carById.setMark(car.getMark());
+            carById.setModel(car.getModel());
             ra.addAttribute("info","Zaktualizowano pojazd o id: " + car.getId());
         }
         return "redirect:/cars";
