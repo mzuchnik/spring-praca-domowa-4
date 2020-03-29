@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car List</title>
+</head>
+<body>
+
+<div id="container">
+    <!--Left Side-->
+    <div style="width: 50%; float: left">
+        <h1>Witaj w mojej prostej aplikacji do zarządzania samochodami</h1>
+        <table>
+            <tr>
+                <td>
+                    <h3>Co chcesz zrobić?</h3>
+                </td>
+                <td>
+                    <form method="get" th:action="@{/cars}">
+                        <input type="submit" value="Pokaż wszystkie samochody">
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Znajdz samochód o id:</h3>
+                </td>
+                <td>
+                    <form method="post" th:action="@{/cars/findCar}">
+                        ID: <input type="number" name="id"/>
+                        <input type="submit" value="Szukaj"/>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Usuń samochód o id:</h3>
+                </td>
+                <td>
+                    <form method="post" th:action="@{/cars/remove}">
+                        ID: <input type="number" name="id"/>
+                        <input type="submit" value="Usuń"/>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Dodaj samochód:</h3>
+                </td>
+                <td>
+                    <form method="post" th:object="${car}" th:action="@{/cars/add}">
+                        Podaj Id: <input type="number" th:field="*{id}"><br>
+                        Podaj Marke: <input type="text" th:field="*{mark}"><br>
+                        Podaj Model: <input type="text" th:field="*{model}"><br>
+                        Podaj Kolor: <input type="text" th:field="*{color}"><br>
+                        <input type="submit" value="Dodaj"/>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Aktualizuj samochód:</h3>
+                </td>
+                <td>
+                    <form method="post" th:object="${car}" th:action="@{/cars/update}">
+                        Podaj Id: <input type="number" th:field="*{id}"><br>
+                        Podaj Marke: <input type="text" th:field="*{mark}"><br>
+                        Podaj Model: <input type="text" th:field="*{model}"><br>
+                        Podaj Kolor: <input type="text" th:field="*{color}"><br>
+                        <input type="submit" value="Dodaj"/>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!--Right Side-->
+    <div style="width: 50%; float: left">
+        <h3 th:text="${info}" th:if="${info != null}"></h3>
+        <h3 th:text="${text}" th:if="${text != null}"></h3>
+        <br>
+        <table>
+            <tr>
+                <td style="width: 100px"><b>ID</b></td>
+                <td style="width: 100px"><b>Marka</b></td>
+                <td style="width: 100px"><b>Model</b></td>
+                <td style="width: 100px"><b>Kolor</b></td>
+            </tr>
+            <tr th:each="car : ${cars}" style="padding-top: 5px">
+                <td th:text="${car.id}"></td>
+                <td th:text="${car.mark}"></td>
+                <td th:text="${car.model}"></td>
+                <td th:text="${car.color}"></td>
+            </tr>
+        </table>
+    </div>
+    <div style="clear: both"></div>
+</div>
+
+</body>
+</html>
